@@ -1,20 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Hello IndexController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<div class="card bg-light text-white border-0 mb-3">
+		<img src="../../img/banner2.png" class="card-img removeBorder rounded-0 myImage">
+		<div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+			<h5 class="card-title text-uppercase fs-1 fw-bold textShadow">Give a pet new home</h5>
+		</div>
+	</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/shahparshabani/Workspace/FE21-Symfony-DAY3-Markus-Shahpar/Shahpar/symfony-day3/src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/shahparshabani/Workspace/FE21-Symfony-DAY3-Markus-Shahpar/Shahpar/symfony-day3/templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+	<h2 class="text-center">
+		<i class="fas fa-paw"></i>
+		<i class="far fa-heart text-orange"></i>
+		Welcome to Vienna Pet Adoption<i class="fas fa-paw"></i>
+		<i class="far fa-heart text-orange"></i>
+	</h2>
+</body></html></div>{% endblock %}

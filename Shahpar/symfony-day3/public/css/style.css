@@ -1,3 +1,63 @@
+.navbar {
+  -webkit-box-shadow: 0 10px 20px 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 10px 20px 0 rgb(0 0 0 / 5%);
+  padding-top: 0.5625rem;
+}
+
+.c-img-thumbnail {
+  max-width: 100px !important;
+  border: 2px solid #ffc738;
+}
+
+
+.border-gold {
+  border: 1.5px solid #d4af37;
+  background-color: #FFFFFF;
+  color: #006665;
+}
+
+.border-gold:hover {
+  background-color: #d4af37;
+  color: #FFFFFF;
+}
+
+.bg-green {
+  background-color: #006665;
+}
+
+.bg-orange {
+  background-color: #ff8474;
+}
+
+.btn {
+  text-transform: uppercase;
+  vertical-align: bottom;
+  border: 0;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  font-weight: 500;
+  padding: 0.625rem 1.5rem 0.5rem;
+  font-size: .75rem;
+  line-height: 1.5;
+}
+
+.btn:hover {
+  -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 10%);
+}
+
+.border-green {
+  border: 1.5px solid #FFFFFF;
+  background-color: #006665;
+  color: #FFFFFF;
+}
+
+.border-green:hover {
+  border: 1.5px solid #e0f0f0;
+  background-color: #FFFFFF;
+  color: #006665;
+}
+
 .border-gold {
   border: 1.5px solid #d4af37;
   background-color: #ffffff;
