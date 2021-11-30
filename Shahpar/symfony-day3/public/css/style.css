@@ -1,0 +1,161 @@
+.border-gold {
+  border: 1.5px solid #d4af37;
+  background-color: #ffffff;
+  color: #006665;
+}
+
+.border-gold:hover {
+  background-color: #d4af37;
+  color: #ffffff;
+}
+
+.border-green {
+  border: 1.5px solid #ffffff;
+  background-color: #006665;
+  color: #ffffff;
+}
+
+.border-green:hover {
+  border: 1.5px solid #e0f0f0;
+  background-color: #ffffff;
+  color: #006665;
+}
+
+.text-green {
+  color: #006665;
+}
+
+.text-orange {
+  color: #ff8474;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0e52c1;
+}
+
+header nav {
+  background-color: #8db9ec;
+}
+
+header nav .c-is-active {
+  font-weight: bolder;
+}
+
+main #fieldset {
+  margin: auto;
+  margin-top: 50px;
+  width: 60%;
+}
+
+main #fieldset .img-thumbnail {
+  width: 70px !important;
+  height: 70px !important;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+main .c-yellow {
+  color: #ffc738;
+}
+
+main .c-img-thumbnail {
+  max-width: 100px !important;
+  border: 2px solid #ffc738;
+}
+
+main .c-table {
+  text-indent: initial;
+  border-spacing: 2px;
+  color: #212529;
+  font-size: 0.9rem;
+}
+
+main .c-table tr {
+  text-align: center;
+}
+
+main .c-table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+main .c-table td .c-link-publisher {
+  text-decoration: none;
+  color: #0a7622;
+  font-weight: 500;
+}
+
+main .c-table td .a-icon {
+  padding: 0.5rem;
+}
+
+main .c-table td .c-green {
+  color: green;
+  padding: 0.5rem;
+}
+
+main .c-table td .c-red {
+  color: #f6584c;
+  padding: 0.5rem;
+}
+
+main .table-striped > tbody > tr:nth-of-type(odd) > * {
+  --bs-table-accent-bg: aliceblue;
+  color: #02a9f4;
+}
+
+main .c-icon-edit {
+  color: #ffc738;
+}
+
+main .c-icon-eye {
+  color: #4b9ece;
+}
+
+main .c-icon-delete {
+  color: #f6584c;
+}
+
+#footer-container {
+  background-color: #a56dca;
+  color: black;
+}
+
+#footer-container a {
+  text-decoration: none;
+}
+
+.c-show {
+  display: block;
+}
+
+.c-hide {
+  display: none !important;
+}
+
+.c-red {
+  color: #f6584c;
+  padding: 0.5rem;
+}
+
+.c-yellow {
+  color: #ffc738;
+}
+
+fieldset {
+  margin: auto;
+  margin-top: 50px;
+  width: 60%;
+}
+
+fieldset .img-thumbnail {
+  width: 70px !important;
+  height: 70px !important;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+/*# sourceMappingURL=main.css.map */
