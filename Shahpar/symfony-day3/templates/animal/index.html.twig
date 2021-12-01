@@ -22,7 +22,6 @@
             <div class="card card-group h-100">
            
             {% if animal.picture is not null %}
-                {# <img src="{{ asset( 'img/animals/' ~  animal.picture ? animal.picture : 'animal.png') }}" class="card-img-top" alt="{{animal.name}}"> #}
                 <img src="{{ asset( 'img/animals/' ~  animal.picture) }}" class="card-img-top" alt="{{animal.name}}">
             
              {% else %}   

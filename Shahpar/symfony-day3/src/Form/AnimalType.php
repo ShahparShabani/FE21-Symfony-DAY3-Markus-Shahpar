@@ -29,23 +29,14 @@ class AnimalType extends AbstractType
         $builder
             ->add('name', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('birth_date',)
-            // ->add('description')
-            // ->add('size')
             ->add('breed', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            // ->add('create_date')
-
-            // ->add('location')
-            // ->add('adopted', CheckboxType::class, array('choices'=>array(1=>'Yes', 0=>'No'), 'attr'=>array('class'=>'form-control mb-3')))
-            ->add('adopted', CheckboxType::class, array('attr' => array('class' => ''),  'label' => 'Show this entry publicly?', 'required'   => false))
-            //build the form using the file type input
+            ->add('adopted', CheckboxType::class, array('attr' => array('class' => ''),  'label' => 'Is adopted?', 'required'   => false))
             ->add('picture', FileType::class, [
                 'label' => 'Upload Picture',
                 //unmapped means that is not associated to any entity property
                 'mapped' => false,
                 //not mandatory to have a file
                 'required' => false,
-
-
                 //in the associated entity, so you can use the PHP constraint classes as validators
                 'constraints' => [
                     new File([
@@ -60,11 +51,8 @@ class AnimalType extends AbstractType
                 ],
             ])
             ->add('fk_status', EntityType::class, [
-
                 'class' => Status::class,
-
                 'choice_label' => 'name',
-
             ]);
     }
 

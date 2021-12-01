@@ -14,12 +14,8 @@
 					<th>Name</th>
 					<th>Status</th>
 					<th>Birth_date</th>
-					{# <th>Description</th>
-																				                <th>Size</th> #}
 					<th>Breed</th>
-					{# <th>Create_date</th> #}
 					<th>Picture</th>
-					{# <th>Location</th> #}
 					<th>Adopted</th>
 					<th>actions</th>
 				</tr>
@@ -36,14 +32,9 @@
 								{{ '-' }}
 							{% endif %}
 						</td>
-						{# <td class="text-center align-middle">{{animal.fk_status.name }}</td> #}
 						<td class="text-center align-middle">{{ animal.birthDate ? animal.birthDate|date('Y-m-d') : '' }}</td>
-						{# <td class="text-center align-middle">{{ animal.description }}</td> #}
-						{# <td class="text-center align-middle">{{ animal.size }}</td> #}
 						<td class="text-center align-middle">{{ animal.breed }}</td>
-						{# <td class="text-center align-middle">{{ animal.createDate ? animal.createDate|date('Y-m-d') : '' }}</td> #}
 						<td class="text-center align-middle"><img class="img-thumbnail c-img-thumbnail" src="{{ asset( 'img/animals/' ~ animal.picture ) }}"/></td>
-						{# <td class="text-center align-middle">{{ animal.location }}</td> #}
 						<td class="text-center align-middle">{{ (animal.adopted == 1) ? 'Yes' : 'No' }}</td>
 						<td class="text-center align-middle">
 							<a class="a-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="show media" href="{{ path('animal_show', {'id': animal.id}) }}">
@@ -53,14 +44,8 @@
 								<i class="fas fa-pencil-alt c-icon-edit"></i>
 							</a>
 							<a class="a-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="delete" href="{{ path('animal_delete', {'id': animal.id}) }}">
-
-								<form method="post" action="{{ path('animal_delete', {'id': animal.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-									<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ animal.id) }}">
-									<div class="mb-3">
-										<i class="fas fa-trash-alt c-icon-delete"></i>
-									</div>
-								</form>
-
+							 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ animal.id) }}">
+								<i class="fas fa-trash-alt c-icon-delete"></i>
 							</a>
 
 						</td>

@@ -3,13 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Animal;
-use App\Entity\User;
 use App\Form\AnimalType;
 use App\Repository\AnimalRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,27 +45,17 @@ class AnimalController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $animalPicture = $form->get('picture')->getData();
-            // dd($animal);
             if ($animalPicture) {
                 $pictureFilename = $FileUploader->upload($animalPicture);
                 // updates the 'picture' property to store the PDF file name
                 // instead of its contents
                 $animal->setPicture($pictureFilename);
+            } 
+            
+            $entityManager->persist($animal);
+            $entityManager->flush();
+            return $this->redirectToRoute('animal_index', [], Response::HTTP_SEE_OTHER);
 
-                $entityManager->persist($animal);
-                $entityManager->flush();
-
-                // return new Response("User photo is successfully uploaded.");
-                // return $this->redirectToRoute('animal_index', []);
-
-            } else {
-
-                $entityManager->persist($animal);
-                $entityManager->flush();
-    
-                // return $this->redirectToRoute('animal_index', [], Response::HTTP_SEE_OTHER);
-
-            }
         }
 
         return $this->renderForm('animal/new.html.twig', [
@@ -77,7 +64,7 @@ class AnimalController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'animal_show', methods: ['GET'])]
+    #[Route('/{id}/show', name: 'animal_show', methods: ['GET'])]
     public function show(Animal $animal): Response
     {
         return $this->render('animal/show.html.twig', [
@@ -93,7 +80,6 @@ class AnimalController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $animalPicture = $form->get('picture')->getData();
-            // dd($animal);
             if ($animalPicture) {
                 $pictureFilename = $FileUploader->upload($animalPicture);
                 // updates the 'picture' property to store the PDF file name
@@ -101,14 +87,6 @@ class AnimalController extends AbstractController
                 $animal->setPicture($pictureFilename);
 
                 $entityManager->flush();
-
-                // $this->addFlash(
-                //     ‘notice’,
-                //     ‘Todo Removed’
-                //  );
-
-                // return new Response("User photo is successfully uploaded.");
-                // return $this->redirectToRoute('animal_index', []);
 
             } else {
 
@@ -128,13 +106,14 @@ class AnimalController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'animal_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'animal_delete', methods: ['GET','POST'])]
     public function delete(Request $request, Animal $animal, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $animal->getId(), $request->request->get('_token'))) {
+        
+        // if ($this->isCsrfTokenValid('delete' . $animal->getId(), $request->request->get('_token'))) {
             $entityManager->remove($animal);
             $entityManager->flush();
-        }
+        // }
 
         return $this->redirectToRoute('animal_index', [], Response::HTTP_SEE_OTHER);
     }
