@@ -27,7 +27,7 @@ class AnimalType extends AbstractType
             ->add('picture', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
             // ->add('location')
             // ->add('adopted', CheckboxType::class, array('choices'=>array(1=>'Yes', 0=>'No'), 'attr'=>array('class'=>'form-control mb-3')))
-            ->add('adopted', ChoiceType::class, array('choices'=>array(1=>'Yes', 0=>'No'), 'attr'=>array('class'=>'form-control mb-3')))
+            ->add('adopted', CheckboxType::class, array('attr'=>array('class'=>''),  'label'    => 'Show this entry publicly?'))
 
         ;
     }

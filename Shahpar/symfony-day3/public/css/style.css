@@ -29,6 +29,10 @@
   background-color: #ff8474;
 }
 
+.bg-bisque{
+  background-color: #ffebcd !important;
+}
+
 .btn {
   text-transform: uppercase;
   vertical-align: bottom;

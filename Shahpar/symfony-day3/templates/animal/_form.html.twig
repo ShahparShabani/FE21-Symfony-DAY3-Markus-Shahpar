@@ -1,5 +1,14 @@
 {{ form_start(form) }}
-{{ form_widget(form) }}
+{# {{ form_widget(form) }} #}
+{{ form_row(form.name) }}
+{{ form_row(form.birth_date) }}
+{{ form_row(form.breed) }}
+{{ form_row(form.picture) }}
+<div class="mb-2">
+<span class="">{{ form_label(form.adopted) }}</span>
+
+<span class="mx-3">{{ form_widget(form.adopted) }}</span>
+</div>
 
 <button class="btn bg-green text-light">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

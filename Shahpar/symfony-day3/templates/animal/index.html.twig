@@ -1,64 +1,47 @@
 {% extends 'base.html.twig' %}
 
+{%
+  set classes = [
+    'bg-bisque',
+  ]
+%}
+
 {% block title %}Animal index
 {% endblock %}
 
 {% block body %}
-	<div class="container mt-5">
-		<h1>Animal index</h1>
+<div class="container bg-bisque mt-5">
+	<h2 class="text-center mb-5">
+		<i class="far fa-heart text-orange"></i>Welcome to Pet Adoption<i class="far fa-heart text-orange"></i>
+	</h2>
 
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Name</th>
-					<th>Birth_date</th>
-					{# <th>Description</th>
-										                <th>Size</th> #}
-					<th>Breed</th>
-					{# <th>Create_date</th> #}
-					<th>Picture</th>
-					{# <th>Location</th> #}
-					<th>Adopted</th>
-					<th>actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for animal in animals %}
-					<tr>
-						<td>{{ animal.id }}</td>
-						<td>{{ animal.name }}</td>
-						<td>{{ animal.birthDate ? animal.birthDate|date('Y-m-d') : '' }}</td>
-						{# <td>{{ animal.description }}</td> #}
-						{# <td>{{ animal.size }}</td> #}
-						<td>{{ animal.breed }}</td>
-						{# <td>{{ animal.createDate ? animal.createDate|date('Y-m-d') : '' }}</td> #}
-						<td><img class="img-thumbnail c-img-thumbnail" src="{{ asset( 'img/animals/' ~ animal.picture ) }}"/></td>
-						{# <td>{{ animal.location }}</td> #}
-						<td>{{ animal.adopted ? 'Yes' : 'No' }}</td>
-						<td>
-							<a class="a-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="show media" href="{{ path('animal_show', {'id': animal.id}) }}">
-								<i class="fas fa-eye c-icon-eye"></i>
-							</a>
-							<a class="a-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit" href="{{ path('animal_edit', {'id': animal.id}) }}">
-								<i class="fas fa-pencil-alt c-icon-edit"></i>
-							</a>
-						
-						</td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="11">no records found</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+  <div class="row row-cols-1 row-cols-md-2 bg-bisque g-4">
+              {% for animal in animals %}
 
-		<div class="mb-3">
-			<a href="{{ path('animal_new') }}">
-				<button class="btn bg-green text-light mb-5" type="button">Add new animal</button>
-			</a>
-		</div>
+        <div class="col fw-light">
+            <div class="card card-group h-100">
+                <img src="{{ asset( 'img/animals/' ~ animal.picture ) }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-green">{{ animal.name }}</h5>
+                    <p class="card-text">Date of birth: {{ animal.birthDate ? animal.birthDate|date('Y-m-d') : '' }}</p>
+                    <p class="card-text">Type: {{animal.breed}}</p>
+                    
+                  
+                    <form action="{{ path('animal_adopt', {'id': animal.id}) }}" method="post" class="mb-2">
+                        <input type="hidden" name="animal_id" value="{{animal.id}}"  class="form-control">
+                        
+                        <button class="btn border-gold '. $display_tag .'" name="submitAdopt" type="submit">Take me home</button>
+                    </form>
+                    <a data-bs-toggle="tooltip" data-bs-placement="bottom" title="show media" href="{{ path('animal_edit', {'id': animal.id}) }}"><button class="btn border-green" type="submit">More information</button></a>
+                  
+                </div>
+            </div>
+        </div>
+			  {% else %}
+			  {% endfor %}
+            </div
+		
 
 	</div>
 {% endblock %}
+
