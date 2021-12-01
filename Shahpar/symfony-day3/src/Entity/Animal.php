@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AnimalRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,6 +51,7 @@ class Animal
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
      */
     private $picture;
 
@@ -61,6 +64,21 @@ class Animal
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $adopted;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Status::class)
+     */
+    public $fk_status;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class)
+     */
+    private $fk_adoption_id;
+
+    public function __construct()
+    {
+        $this->fk_adoption_id = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -171,6 +189,42 @@ class Animal
     public function setAdopted(bool $adopted): self
     {
         $this->adopted = $adopted;
+
+        return $this;
+    }
+
+    public function getFkStatus(): ?Status
+    {
+        return $this->fk_status;
+    }
+
+    public function setFkStatus(?Status $fk_status): self
+    {
+        $this->fk_status = $fk_status;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getFkAdoptionId(): Collection
+    {
+        return $this->fk_adoption_id;
+    }
+
+    public function addFkAdoptionId(User $fkAdoptionId): self
+    {
+        if (!$this->fk_adoption_id->contains($fkAdoptionId)) {
+            $this->fk_adoption_id[] = $fkAdoptionId;
+        }
+
+        return $this;
+    }
+
+    public function removeFkAdoptionId(User $fkAdoptionId): self
+    {
+        $this->fk_adoption_id->removeElement($fkAdoptionId);
 
         return $this;
     }

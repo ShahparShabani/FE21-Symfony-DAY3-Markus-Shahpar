@@ -5,10 +5,13 @@
 {{ form_row(form.breed) }}
 {{ form_row(form.picture) }}
 <div class="mb-2">
-<span class="">{{ form_label(form.adopted) }}</span>
+	<span class="">{{ form_label(form.adopted) }}</span>
 
-<span class="mx-3">{{ form_widget(form.adopted) }}</span>
+	<span class="mx-3">{{ form_widget(form.adopted) }}</span>
 </div>
 
-<button class="btn bg-green text-light">{{ button_label|default('Save') }}</button>
+{{ form_row(form.fk_status) }}
+
+
+<button class="btn bg-green text-light mt-5">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -2,7 +2,7 @@
 
 {%
   set classes = [
-    'bg-bisque',
+    'bg-grey',
   ]
 %}
 
@@ -10,28 +10,32 @@
 {% endblock %}
 
 {% block body %}
-<div class="container bg-bisque mt-5">
+<div class="container bg-grey mt-5">
 	<h2 class="text-center mb-5">
 		<i class="far fa-heart text-orange"></i>Welcome to Pet Adoption<i class="far fa-heart text-orange"></i>
 	</h2>
 
-  <div class="row row-cols-1 row-cols-md-2 bg-bisque g-4">
+  <div class="row row-cols-1 row-cols-md-2 bg-grey g-4">
               {% for animal in animals %}
 
         <div class="col fw-light">
             <div class="card card-group h-100">
-                <img src="{{ asset( 'img/animals/' ~ animal.picture ) }}" class="card-img-top" alt="...">
+           
+            {% if animal.picture is not null %}
+                {# <img src="{{ asset( 'img/animals/' ~  animal.picture ? animal.picture : 'animal.png') }}" class="card-img-top" alt="{{animal.name}}"> #}
+                <img src="{{ asset( 'img/animals/' ~  animal.picture) }}" class="card-img-top" alt="{{animal.name}}">
+            
+             {% else %}   
+             <img src="{{ asset('img/animals/animal.png') }}" class="card-img-top alt="{{animal.name}}">
+            
+             {% endif %}   
                 <div class="card-body">
                     <h5 class="card-title text-green">{{ animal.name }}</h5>
                     <p class="card-text">Date of birth: {{ animal.birthDate ? animal.birthDate|date('Y-m-d') : '' }}</p>
                     <p class="card-text">Type: {{animal.breed}}</p>
                     
                   
-                    <form action="{{ path('animal_adopt', {'id': animal.id}) }}" method="post" class="mb-2">
-                        <input type="hidden" name="animal_id" value="{{animal.id}}"  class="form-control">
-                        
-                        <button class="btn border-gold '. $display_tag .'" name="submitAdopt" type="submit">Take me home</button>
-                    </form>
+                    	{{ include('animal/_adopt_form.html.twig') }}
                     <a data-bs-toggle="tooltip" data-bs-placement="bottom" title="show media" href="{{ path('animal_edit', {'id': animal.id}) }}"><button class="btn border-green" type="submit">More information</button></a>
                   
                 </div>

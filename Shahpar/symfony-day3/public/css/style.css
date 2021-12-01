@@ -1,6 +1,6 @@
 .navbar {
-  -webkit-box-shadow: 0 10px 20px 0 rgb(0 0 0 / 5%);
-  box-shadow: 0 10px 20px 0 rgb(0 0 0 / 5%);
+  -webkit-box-shadow: 0 10px 20px 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 10px 20px 0 rgb(0 0 0 / 20%);
   padding-top: 0.5625rem;
 }
 
@@ -31,6 +31,10 @@
 
 .bg-bisque{
   background-color: #ffebcd !important;
+}
+
+.bg-grey {
+background-color: #d5dce3 !important;
 }
 
 .btn {
