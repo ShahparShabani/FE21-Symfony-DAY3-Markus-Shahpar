@@ -20,14 +20,17 @@
 
         <div class="col fw-light">
             <div class="card card-group h-100">
+
+          
+
            
-            {% if animal.picture is not null %}
-                <img src="{{ asset( 'img/animals/' ~  animal.picture) }}" class="card-img-top" alt="{{animal.name}}">
+            {# {% if animal.picture is not null %} #}
+                <img src="{{ asset( 'img/animals/' ~ (( animal.picture ) ? animal.picture : 'animal.png')) }}" class="card-img-top" alt="{{animal.name}}">
             
-             {% else %}   
-             <img src="{{ asset('img/animals/animal.png') }}" class="card-img-top alt="{{animal.name}}">
+             {# {% else %}    #}
+             {# <img src="{{ asset('img/animals/animal.png') }}" class="card-img-top alt="{{animal.name}}"> #}
             
-             {% endif %}   
+             {# {% endif %}    #}
                 <div class="card-body">
                     <h5 class="card-title text-green">{{ animal.name }}</h5>
                     <p class="card-text">Date of birth: {{ animal.birthDate ? animal.birthDate|date('Y-m-d') : '' }}</p>

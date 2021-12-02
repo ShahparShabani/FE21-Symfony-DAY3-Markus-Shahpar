@@ -107,9 +107,9 @@ class AnimalController extends AbstractController
     }
 
     #[Route('/{id}', name: 'animal_delete', methods: ['GET','POST'])]
-    public function delete(Request $request, Animal $animal, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, $id, Animal $animal, EntityManagerInterface $entityManager): Response
     {
-        
+        $animalId = $id;
         // if ($this->isCsrfTokenValid('delete' . $animal->getId(), $request->request->get('_token'))) {
             $entityManager->remove($animal);
             $entityManager->flush();
